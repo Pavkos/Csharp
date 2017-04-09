@@ -1,52 +1,34 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace HomeWork5
 {
-    public class Car:Detail
+    public class Car : Detail
     {
-        public List<Car> listCar = new List<Car>();
-        public static string modelCar;
-        private string nameCar;
-        public Car()
-        {
+        public List<Detail> ListDetail { get; set; } = new List<Detail>();
 
-        }
+        public int Weight { set; get; }
+
+        public string Model { get; set; }
+
         public Car(int numberWheel, int numberDoor)
         {
-            Wheel wheel = new Wheel(numberWheel);
+             
+            for (int i = 0; i < numberWheel; i++)
+            {
+                Wheel wheel = new Wheel(i,"Pirelli",this);
+                ListDetail.Add(wheel);                
+            }
+
             Body body = new Body();
-            Door door = new Door(numberDoor);
-            listCar.Add(wheel);
-            listCar.Add(door);
-            listCar.Add(body);
-        }
+            ListDetail.Add(body);
 
-        public override int Weight { set; get; }
-        public override string Name
-        {
-            get
+            for (int i = 0; i < numberDoor; i++)
             {
-                return "Автомобиль";
-            }
-
-            set
-            {
-                nameCar=value;
-            }
-        }
-
-
-        public string ModelCar
-        {
-            set
-            {
-                modelCar = value;
-            }
-        }
-       
+                Door door = new Door(numberDoor, "ABC", this);
+                ListDetail.Add(door);
+            }                      
+        }                         
     }
 }

@@ -11,10 +11,11 @@ namespace HomeWork5
         static void Main(string[] args)
         {
             Car Ferrari = new Car(4, 5);
+            
 
-            Ferrari.ModelCar = "ModelA";
+            Ferrari.Model = "ModelA";
 
-            foreach (var i in Ferrari.listCar)
+            foreach (var i in Ferrari.ListDetail)
             {
                 (i as IRotatable)?.Move();
                 (i as IDoor)?.Open();

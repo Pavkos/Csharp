@@ -6,14 +6,8 @@ using System.Threading.Tasks;
 
 namespace HomeWork5
 {
-    public class Body:Car
+    public class Body:Detail
     {
-        public override string Name
-        {
-            get
-            {
-                return "Рама";
-            }
-        }
+
     }
 }

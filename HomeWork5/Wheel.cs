@@ -1,37 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HomeWork5
 {
-    public class Wheel : Car, IRotatable
+    public class Wheel : Detail, IRotatable
     {
-        private int numberWheel;
-        public Wheel(int numberWheel)
+        public int NumberWheel { get; private set; }
+        private Car ownerCar;
+        
+        public Wheel(int numberWheel, string name, Car ownerCar)
         {
-            this.numberWheel = numberWheel;
+            this.NumberWheel = numberWheel;
+            this.Name = name;
+            this.ownerCar = ownerCar;
         }
 
         public void Move()
         {
-            Console.WriteLine("Колесо №{0} машины {1} вращается", NumberWheel, modelCar);
-        }
-        public int NumberWheel
-        {
-            get
-            {
-                return numberWheel;
-            }
-        }
-        public override string Name
-        {
-            get
-            {
-                return "Колесо";
-            }
-        }
+            Console.WriteLine("Колесо №{0} машины {1} вращается", NumberWheel, ownerCar.Model);
+        }      
     }
 }
 

@@ -8,7 +8,7 @@ namespace HomeWork5
 {
     public abstract class Detail
     {
-        public abstract int Weight { set; get; }
-        public abstract string Name { set; get; }
+        public int Weight { set; get; }
+        public string Name { set; get; }
     }
 }
